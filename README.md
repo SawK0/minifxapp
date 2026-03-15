@@ -2,6 +2,12 @@
 
 A modern collection of developer utilities built with Angular. Fast, simple, and privacy-focused tools for everyday development tasks.
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://minifxapp.vercel.app/)**
+
+> 🚀 Deployed on Render with automatic updates from the main branch
+
 ## ✨ Features
 
 - **Privacy First** - All processing happens locally in your browser
@@ -84,7 +90,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Saw Ko**
 
-- GitHub: [@sawko](https://github.com/SawK0)
+- GitHub: [@SawK0](https://github.com/SawK0)
 
 ## 🙏 Acknowledgments
 
