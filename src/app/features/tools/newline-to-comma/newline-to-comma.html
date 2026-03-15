@@ -1,0 +1,137 @@
+<div class="tool-page">
+  <div class="container">
+    <div class="tool-header">
+      <div class="tool-title-section">
+        <h1 class="tool-title">
+          <span class="material-icons">swap_vert</span>
+          Newline to Comma Converter
+        </h1>
+        <p class="tool-description">
+          Convert newline-separated text to comma-separated values. Perfect for formatting lists,
+          arrays, or SQL queries.
+        </p>
+      </div>
+    </div>
+
+    <div class="tool-options">
+      <div class="option-group">
+        <label class="option-label">
+          <span>Separator</span>
+          <input
+            type="text"
+            class="input separator-input"
+            [value]="separator()"
+            (input)="onSeparatorChange($event)"
+            placeholder=", "
+          />
+        </label>
+      </div>
+
+      <div class="option-group">
+        <label class="option-label">
+          <span>Wrap with</span>
+          <select class="input select-input" [value]="wrapWith()" (change)="onWrapWithChange($event)">
+            <option value="none">None</option>
+            <option value="square">Square brackets [ ]</option>
+            <option value="round">Round brackets ( )</option>
+            <option value="curly">Curly brackets {{ '{' }} {{ '}' }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="option-group">
+        <label class="option-label">
+          <span>Quote each item</span>
+          <select class="input select-input" [value]="quoteWith()" (change)="onQuoteWithChange($event)">
+            <option value="none">None</option>
+            <option value="single">Single quotes ' '</option>
+            <option value="double">Double quotes " "</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="option-group">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            [checked]="removeEmpty()"
+            (change)="onRemoveEmptyChange($event)"
+          />
+          <span>Remove empty lines</span>
+        </label>
+      </div>
+
+      <div class="option-group">
+        <label class="checkbox-label">
+          <input type="checkbox" [checked]="trimLines()" (change)="onTrimLinesChange($event)" />
+          <span>Trim whitespace</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="tool-content">
+      <div class="editor-panel">
+        <div class="panel-header">
+          <h3 class="panel-title">Input</h3>
+          <button class="btn-ghost btn-sm" (click)="clear()">
+            <span class="material-icons">clear</span>
+            Clear
+          </button>
+        </div>
+        <div class="editor-wrapper">
+          <textarea
+            class="editor-textarea"
+            placeholder="Enter text with each item on a new line...&#10;&#10;Example:&#10;apple&#10;banana&#10;cherry"
+            [value]="inputText()"
+            (input)="onInputChange($event)"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="editor-panel">
+        <div class="panel-header">
+          <h3 class="panel-title">Output</h3>
+          <button class="btn-primary btn-sm" (click)="copyToClipboard()">
+            <span class="material-icons">content_copy</span>
+            Copy
+          </button>
+        </div>
+        <div class="editor-wrapper">
+          <textarea class="editor-textarea" readonly [value]="outputText()"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-info">
+      <div class="info-card">
+        <h3 class="info-title">
+          <span class="material-icons">info</span>
+          How to use
+        </h3>
+        <ul class="info-list">
+          <li>Paste or type your newline-separated text in the input area</li>
+          <li>The output will automatically update with comma-separated values</li>
+          <li>Customize the separator (default is comma + space)</li>
+          <li>Wrap output with brackets for arrays or tuples</li>
+          <li>Quote each item with single or double quotes</li>
+          <li>Toggle options to remove empty lines or trim whitespace</li>
+          <li>Click "Copy" to copy the result to your clipboard</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3 class="info-title">
+          <span class="material-icons">lightbulb</span>
+          Common use cases
+        </h3>
+        <ul class="info-list">
+          <li>Creating string arrays: ["apple", "banana", "cherry"]</li>
+          <li>Formatting Python/JavaScript tuples: ('item1', 'item2')</li>
+          <li>SQL IN clauses with quotes: ('value1', 'value2', 'value3')</li>
+          <li>Creating CSV-style data from line-separated values</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

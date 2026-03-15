@@ -1,0 +1,87 @@
+<div class="home">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Developer Utilities Made Simple</h1>
+        <p class="hero-description">
+          A collection of essential tools for developers. Fast, simple, and always available.
+          No ads, no tracking, just pure functionality.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-value">{{ tools.length }}</span>
+            <span class="stat-label">Tools</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{{ categories.length }}</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">100%</span>
+            <span class="stat-label">Free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-tools">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Tools</h2>
+        <p class="section-description">Most popular utilities to boost your productivity</p>
+      </div>
+
+      <div class="tools-grid">
+        @for (tool of getFeaturedTools(); track tool.id) {
+          <a [routerLink]="tool.route" class="tool-card">
+            <div class="tool-icon">
+              <span class="material-icons">{{ tool.icon }}</span>
+            </div>
+            <div class="tool-content">
+              <h3 class="tool-name">{{ tool.name }}</h3>
+              <p class="tool-description">{{ tool.description }}</p>
+            </div>
+            <div class="tool-arrow">
+              <span class="material-icons">arrow_forward</span>
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <div class="container">
+      @for (category of categories; track category.id) {
+        <div class="category-block">
+          <div class="category-header">
+            <div class="category-title-wrapper">
+              <span class="material-icons category-icon">{{ category.icon }}</span>
+              <h2 class="category-title">{{ category.name }}</h2>
+            </div>
+            <span class="category-count">{{ getToolsByCategory(category.id).length }} tools</span>
+          </div>
+
+          <div class="tools-grid">
+            @for (tool of getToolsByCategory(category.id); track tool.id) {
+              <a [routerLink]="tool.route" class="tool-card">
+                <div class="tool-icon">
+                  <span class="material-icons">{{ tool.icon }}</span>
+                </div>
+                <div class="tool-content">
+                  <h3 class="tool-name">{{ tool.name }}</h3>
+                  <p class="tool-description">{{ tool.description }}</p>
+                </div>
+                <div class="tool-arrow">
+                  <span class="material-icons">arrow_forward</span>
+                </div>
+              </a>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>
+
