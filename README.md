@@ -6,7 +6,7 @@ A modern collection of developer utilities built with Angular. Fast, simple, and
 
 **[View Live Demo →](https://minifxapp.vercel.app/)**
 
-> 🚀 Deployed on Render with automatic updates from the main branch
+> 🚀 Deployed on Vercel with automatic updates from the main branch
 
 ## ✨ Features
 
